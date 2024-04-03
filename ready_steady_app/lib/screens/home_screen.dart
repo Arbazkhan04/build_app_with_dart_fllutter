@@ -8,9 +8,6 @@ class HomeScreen extends StatelessWidget{
   TextStyle myStyle = TextStyle(color: Colors.orange , fontWeight: FontWeight.bold , fontSize: 24);
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Text('My App');
-=======
     return Container(
       margin: EdgeInsets.all(12.0),
       color: Colors.blue.shade100,
@@ -59,7 +56,6 @@ class HomeScreen extends StatelessWidget{
         ],
       ),
     );
->>>>>>> 97c375ab3b21c0fd933f0ffb0f096ff9fd1bac40
   }
 
 }
