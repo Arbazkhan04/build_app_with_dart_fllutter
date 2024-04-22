@@ -1,25 +1,27 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:listview_example/Modal/user.dart';
-import 'package:listview_example/database/getData.dart';
+import 'package:untitled/Database.dart';
+
+import 'User.dart';
 
 class HomeScreen extends StatefulWidget{
-  @override 
-  homeState createState()=> homeState();
+  HomeState createState() => HomeState();
 }
 
-class homeState extends State{
-  @override
-  
+class HomeState extends State{
   List<User> users = [];
   int i = 0;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
   }
+
+  @override
   Widget build(BuildContext context) {
-      return  Scaffold(
+
+    return Scaffold(
       appBar: AppBar(
         title: Text("ListView"),
       ),
@@ -30,9 +32,17 @@ class homeState extends State{
             users.length > 0 ? ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: users.length,
+              itemCount: users.length + 1,
               itemBuilder: (BuildContext context , int index){
-                  User current = users[index];
+
+                if(index == 2){
+                 return  Container(
+                margin: EdgeInsets.all(12),
+                color: Colors.blue.shade300,
+                height: 110,
+                child : Text("Custom Text"));
+                }else {
+                  User current = users[index-1];
                   return Card(
                       elevation: 18,
                       shadowColor: Colors.blue,
@@ -67,6 +77,7 @@ class homeState extends State{
                           ],
                         ),
                       ));
+                }
               },
 
             ) : Text("Getting Data")
@@ -76,7 +87,7 @@ class homeState extends State{
     );
   }
 
-   deleteUser(int index){
+  deleteUser(int index){
     setState(() {
       users.removeAt(index);
     });
@@ -86,11 +97,10 @@ class homeState extends State{
     setState(() {
       users = Database.generateData();
     });
+
   }
+
 }
-
-
-
 
 //Area / portion for our listview
 //Create Backend Model
