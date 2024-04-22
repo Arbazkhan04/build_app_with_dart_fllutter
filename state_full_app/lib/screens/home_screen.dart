@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget{
 class homeState extends State{
   @override
   int index =  0;
-  List<Widget> screens = [SettingScreen(),DraftScreeen(),ProfileScreen()];
+  List<Widget> screens = [SettingState(),DraftState(),ProfileState()];
   void bottomTap(int i){
     setState(() {
       index = i;
@@ -37,7 +37,6 @@ class homeState extends State{
           BottomNavigationBarItem(icon: Icon(Icons.person) , label: "Profile"),
         ],
         ),
-
     );
   }
   
